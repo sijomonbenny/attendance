@@ -1,19 +1,27 @@
-name: Run Python Script
+name: Scheduled Python Script
 
 on:
   schedule:
-    - cron: '25 3 * * *'   # 9:25 AM IST (convert to UTC)
-    - cron: '15 13 * * *'  # 6:45 PM IST (convert to UTC)
-  workflow_dispatch:       # Allows manual triggering too
+    - cron: "25 9 * * 1-5"   # 9:25 AM Monday to Friday
+    - cron: "45 18 * * 1-5"  # 6:45 PM Monday to Friday
 
 jobs:
-  run-script:
+  run-python-script:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v4
         with:
           python-version: '3.x'
-      - name: Run script
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+      - name: Run Python script
         run: python hrone.py
