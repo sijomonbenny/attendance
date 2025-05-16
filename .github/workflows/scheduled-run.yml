@@ -1,0 +1,19 @@
+name: Run Python Script
+
+on:
+  schedule:
+    - cron: '25 3 * * *'   # 9:25 AM IST (convert to UTC)
+    - cron: '15 13 * * *'  # 6:45 PM IST (convert to UTC)
+  workflow_dispatch:       # Allows manual triggering too
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Run script
+        run: python your_script.py
