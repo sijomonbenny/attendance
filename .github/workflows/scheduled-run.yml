@@ -2,8 +2,8 @@ name: Scheduled Python Script
 
 on:
   schedule:
-    - cron: "25 9 * * 1-5"   # 9:25 AM Monday to Friday
-    - cron: "45 18 * * 1-5"  # 6:45 PM Monday to Friday
+    - cron: "55 3 * * 1-5"   # 9:25 AM IST
+    - cron: "15 13 * * 1-5"  # 6:45 PM IST
 
 jobs:
   run-python-script:
