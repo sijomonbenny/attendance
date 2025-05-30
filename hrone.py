@@ -7,8 +7,8 @@ LOGIN_URL = "https://gateway.hrone.cloud/oauth2/token"
 API_URL = "https://app.hrone.cloud/api/timeoffice/mobile/checkin/Attendance/Request"
 
 # Replace with your username and password
-USERNAME = 
-PASSWORD = 
+USERNAME = "sijomon.benny@batonsystems.com"
+PASSWORD = "Panayil@2025"
 
 # Get date from command-line arguments or default to today
 if len(sys.argv) > 1:
