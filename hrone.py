@@ -1,6 +1,7 @@
 import requests
 import datetime
 import sys
+import pytz
 
 # Replace with the actual login endpoint
 LOGIN_URL = "https://gateway.hrone.cloud/oauth2/token"
@@ -10,15 +11,16 @@ API_URL = "https://app.hrone.cloud/api/timeoffice/mobile/checkin/Attendance/Requ
 USERNAME = "sijomon.benny@batonsystems.com"
 PASSWORD = "Panayil@2025"
 
+ist = pytz.timezone('Asia/Kolkata')
 # Get date from command-line arguments or default to today
 if len(sys.argv) > 1:
     try:
-        current_date = datetime.datetime.now().strftime("%Y-%m-%dT%H:%M")
+        current_date = datetime.datetime.now(ist).strftime("%Y-%m-%dT%H:%M")
     except ValueError:
         print("Invalid date format! Use YYYY-MM-DD.")
         sys.exit(1)
 else:
-    current_date = datetime.datetime.now().strftime("%Y-%m-%dT%H:%M")
+    current_date = datetime.datetime.now(ist).strftime("%Y-%m-%dT%H:%M")
 print("----------------------------------------------------------------------------------------------------")
 print(f"Using date: {current_date}")
 
