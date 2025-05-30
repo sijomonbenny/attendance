@@ -46,6 +46,8 @@ if response.status_code == 200:
         headers = {
             "Authorization": f"Bearer {token}",
             "Content-Type": "application/json"
+            "X-Timezone": "Asia/Kolkata"
+            "X-Timestamp": "2025-05-23T09:15:00+05:30"
         }
 
         # Define the payload with dynamic currentDate
